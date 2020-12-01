@@ -1,13 +1,13 @@
 package main
 
 import (
+	"bufio"
+	"fmt"
+	"io"
 	"log"
 	"os"
-	"bufio"
-	"strconv"
-	"io"
 	"sort"
-	"fmt"
+	"strconv"
 )
 
 func readIntsFromFile(r io.Reader) ([]int, error) {
@@ -29,7 +29,7 @@ func findTwoSum(numbers []int, target int) (int, int) {
 	result := make(map[int]int)
 
 	for _, v := range numbers {
-		result[target - v] = v
+		result[target-v] = v
 		if value, ok := result[v]; ok {
 			return value, v
 		}
@@ -39,8 +39,8 @@ func findTwoSum(numbers []int, target int) (int, int) {
 
 // Part Two
 func findThreeSum(nums []int, target int) (int, int, int) {
-	for i, _ := range nums[:len(nums) - 2] {
-		start, end := i + 1, len(nums) - 1
+	for i, _ := range nums[:len(nums)-2] {
+		start, end := i+1, len(nums)-1
 
 		for start < end {
 			sum := nums[i] + nums[start] + nums[end]
@@ -65,14 +65,14 @@ func main() {
 
 	data, err := readIntsFromFile(d)
 	if err != nil {
-		log.Fatalf("Failed to convert file contents to int array: %v\n")
+		log.Fatalf("Failed to convert file contents to int array: %v\n", err)
 	}
 
 	sort.Ints(data)
 	value1, value2 := findTwoSum(data, 2020)
-	fmt.Println("Part One result: ", value1 * value2)
+	fmt.Println("Part One result: ", value1*value2)
 
 	// Part Two
 	value1, value2, value3 := findThreeSum(data, 2020)
-	fmt.Println("Part Two result: ", value1 * value2 * value3)
+	fmt.Println("Part Two result: ", value1*value2*value3)
 }
