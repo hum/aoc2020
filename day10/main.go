@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"strings"
 	"sort"
 	"strconv"
+	"strings"
 )
 
 func evalAdapter(num1, num2 int) (int, bool) {
@@ -44,7 +44,7 @@ func main() {
 	}
 
 	sort.Ints(values)
-	adapters := make([]int, 0, len(values) + 1)
+	adapters := make([]int, 0, len(values)+1)
 	adapters = append(adapters, 0)
 
 	for _, v := range values {
@@ -67,7 +67,7 @@ func main() {
 	cache := make(map[int]int)
 
 	for _, v := range adapters[:len(adapters)-1] {
-		distinct[v] = []int{v+3, v+2, v+1}
+		distinct[v] = []int{v + 3, v + 2, v + 1}
 	}
 	result2 := countDistinctWays(distinct, cache, adapters[len(adapters)-1], 0)
 	fmt.Println(result1, result2)
