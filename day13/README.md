@@ -100,9 +100,9 @@ In the above example, bus ID `7` departs at timestamp `1068788` (seven minutes a
 Here are some other examples:
 - The earliest timestamp that matches the list `17,x,13,19` is **`3417`**.
 - `67,7,59,61` first occurs at timestamp **`754018`**.
-- `67,x,7,59,61` first occurs at timestamp **`779210`.
-- `67,7,x,59,61` first occurs at timestamp **`1261476`.
-- `1789,37,47,1889` first occurs at timestamp **`1202161486`.
+- `67,x,7,59,61` first occurs at timestamp **`779210`**.
+- `67,7,x,59,61` first occurs at timestamp **`1261476`**.
+- `1789,37,47,1889` first occurs at timestamp **`1202161486`**.
 However, with so many bus IDs in your list, surely the actual earliest timestamp will be larger than `100000000000000`!
 
 **What is the earliest timestamp such that all of the listed bus IDs depart at offsets matching their positions in the list?**
